@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="module" src="index.js"></script>
+    <style>
+        tr, td {
+            width: 30px;
+            height: 30px;
+            background: white;
+        }
+
+        div {
+            text-align: center;
+        }
+
+        div.circle {
+            display: inline-block;
+            text-align: center;
+            width: 60px;
+            height: 60px;
+            background: black;
+        }
+
+
+    </style>
+</head>
+
+<body style="background: green">
+<div>
+    <table id="board" align="center">
+        <script>
+            var board= document.getElementById("board");
+            for (let i = 0; i < 15; i++) {
+                let row=document.createElement("tr");
+                row.className="row";
+                board.appendChild(row);
+            }
+        </script>
+
+        <script>
+            var trs = document.getElementsByClassName("row");
+
+            for (let i = 0; i < 15; i++) {
+                for (let k = 0; k < 15; k++) {
+                    let obj = document.createElement("td");
+                    obj.className = "board";
+                    trs[i].append(obj);
+                }
+            }
+        </script>
+
+
+    </table>
+    <div style="height: 20px;"></div>
+
+    <div class="circle"></div>
+    <p id="text">${a}</p>
+    <button id="resetButton">리셋</button>
+    <button id="undoButton">무르기</button>
+    <button id="move" onclick="location.href='newPage.html'">페이지 이동</button>
+</div>
+
+
+</body>
+</html>
