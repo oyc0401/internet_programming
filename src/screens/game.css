@@ -1,0 +1,42 @@
+tr, td {
+    width: 30px;
+    height: 30px;
+    background: white;
+}
+
+div {
+    text-align: center;
+}
+
+div.moveTypeBtn {
+    display: inline-block;
+    text-align: center;
+    width: 90px;
+    height: 60px;
+    line-height: 60px;
+    border: 1px black solid;
+    border-radius: 3px;
+
+}
+
+body{
+    background: dimgray;
+}
+.selected{
+    color: lightskyblue;
+}
+
+
+table{
+    padding: 8px;
+}
+
+#game{
+    padding: 16px;
+    width: 800px;
+    background: white;
+}
+
+#test{
+    color: gold;
+}
