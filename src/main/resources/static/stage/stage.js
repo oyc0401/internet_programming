@@ -1,6 +1,6 @@
-import {Provider} from "../../providerJS/provider.js";
-import {GameViewModel} from "../model/game_viewmodel.js";
-import {Direction, Entity} from "../model/game.js";
+import {Provider} from "../providerJS/provider.js";
+import {GameViewModel} from "./game_viewmodel.js";
+import {Direction, Entity} from "./game.js";
 
 const URLSearch = new URLSearchParams(location.search);
 let stageNum = URLSearch.get("stage");

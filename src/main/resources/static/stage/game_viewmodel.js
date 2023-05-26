@@ -1,4 +1,4 @@
-import {ChangeNotifier} from "../../providerJS/provider.js";
+import {ChangeNotifier} from "../providerJS/provider.js";
 import {Activity, Game} from "./game.js";
 import {getStage} from "./api.js";
 

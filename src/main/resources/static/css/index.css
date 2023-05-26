@@ -1,0 +1,117 @@
+body {
+    background-color: blanchedalmond;
+    color: #000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    color: #000;
+}
+
+.drawer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.drawer-icon {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.drawer-content {
+    /*display: none;*/
+    position: absolute;
+    width: 100px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    z-index: 1;
+}
+
+
+.drawer.open .drawer-content {
+    display: block;
+}
+
+.drawer-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.drawer-content li {
+    margin-bottom: 10px;
+}
+
+.drawer-content a {
+    text-decoration: none;
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+.drawer-content a:hover {
+
+    color: #654321;
+}
+
+.menu-shortcut {
+    margin-top: 50px;
+}
+
+.menu-shortcut ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-shortcut li {
+    margin-bottom: 10px;
+}
+
+.menu-shortcut a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #8B4513;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.menu-shortcut a:hover {
+    background-color: #654321;
+}
+
+.ranking-shortcut {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.ranking-shortcut button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+.ranking-shortcut button:hover {
+    color: #654321;
+}
