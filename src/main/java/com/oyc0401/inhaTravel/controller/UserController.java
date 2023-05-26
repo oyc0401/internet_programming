@@ -82,6 +82,23 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
+    @DeleteMapping("/delete")
+    public ResponseEntity<?> delete(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Long userId = (Long) session.getAttribute("userId");
+
+        if (userId != null) {
+            // 세션에서 사용자 정보를 가져옴
+            Optional<User> user = userService.getUserById(userId);
+            if (user.isPresent()) {
+                return deleteUser(userId);
+            }
+        }
+
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not logged in");
+    }
+
+
     @DeleteMapping("/users/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         boolean deleted = userService.deleteUserById(id);
