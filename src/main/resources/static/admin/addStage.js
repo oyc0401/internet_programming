@@ -1,5 +1,3 @@
-
-
 const stage1 = [
     [1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -19,21 +17,13 @@ const stage1 = [
 ];
 
 const stage1Data = {
-    "number": 1,
+    "id": 1,
     "name": "tutorial",
     "star1": 20,
     "star2": 15,
     "star3": 10,
     "map": JSON.stringify(stage1)
 }
-
-
-
-
-
-
-
-
 
 
 // 스테이지 2
@@ -56,21 +46,13 @@ const stage2 = [
 ];
 
 const stage2Data = {
-    "number": 2,
+    "id": 2,
     "name": "grace",
     "star1": 15,
     "star2": 12,
     "star3": 8,
     "map": JSON.stringify(stage2)
 }
-
-
-
-
-
-
-
-
 
 
 // 스테이지 3
@@ -93,18 +75,13 @@ const stage3 = [
 ];
 
 const stage3Data = {
-    "number": 3,
+    "id": 3,
     "name": "maze",
     "star1": 21,
     "star2": 16,
     "star3": 13,
     "map": JSON.stringify(stage3)
 }
-
-
-
-
-
 
 
 // 스테이지 4
@@ -127,18 +104,13 @@ const stage4 = [
 ];
 
 const stage4Data = {
-    "number": 4,
+    "id": 4,
     "name": "stone",
     "star1": 15,
     "star2": 12,
     "star3": 8,
     "map": JSON.stringify(stage4)
 }
-
-
-
-
-
 
 
 // 스테이지 5
@@ -161,7 +133,7 @@ const stage5 = [
 ];
 
 const stage5Data = {
-    "number": 5,
+    "id": 5,
     "name": "wall",
     "star1": 15,
     "star2": 12,
@@ -170,4 +142,4 @@ const stage5Data = {
 }
 
 
-export let dataList=[stage1Data,stage2Data,stage3Data,stage4Data,stage5Data]
+export let dataList = [stage1Data, stage2Data, stage3Data, stage4Data, stage5Data]
