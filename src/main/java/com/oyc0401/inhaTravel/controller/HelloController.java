@@ -28,10 +28,10 @@ public class HelloController {
         return "menu";
     }
 
-//    @GetMapping("/stage1")
-//    public String stage() {
-//        return "stage1";
-//    }
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
 
     @GetMapping("/game")
     public String game(@RequestParam("stage") String stageNum, Model model) {

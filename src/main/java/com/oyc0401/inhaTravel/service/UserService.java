@@ -40,6 +40,11 @@ public class UserService {
         return userRepository.existsByUsername(username);
     }
 
+    // 회원 정보 가져오기
+    public Optional<User> getUserById(Long id) {
+        return userRepository.findById(id);
+    }
+
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
