@@ -16,8 +16,8 @@ public class StageService {
         this.stageRepository = stageRepository;
     }
 
-    public Stage getStage(int stage) {
-        return stageRepository.findByStage(stage);
+    public Stage getStage(int number) {
+        return stageRepository.findByNumber(number);
     }
 
     public void addStage(Stage stage) {
