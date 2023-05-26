@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="module" src="src/screens/game.js"></script>
+    <link rel="stylesheet" href="src/screens/game.css">
+</head>
+
+<body>
+<div id="game">
+    <div onclick="window.history.back()">메뉴 이동</div>
+    <table id="board">
+        <script>
+            var board = document.getElementById("board");
+            for (let i = 0; i < 15; i++) {
+                let row = document.createElement("tr");
+                row.className = "row";
+                board.appendChild(row);
+            }
+        </script>
+
+        <script>
+            var trs = document.getElementsByClassName("row");
+
+            for (let i = 0; i < 15; i++) {
+                for (let k = 0; k < 15; k++) {
+                    let obj = document.createElement("td");
+                    obj.className = "board";
+                    trs[i].append(obj);
+                }
+            }
+        </script>
+
+
+    </table>
+    <div class="moveTypeBtn">
+        걷기 (q)
+    </div>
+    <div class="moveTypeBtn">
+        점프 (w)
+    </div>
+    <div class="moveTypeBtn">
+        대쉬 (e)
+    </div>
+</div>
+
+
+</body>
+</html>
