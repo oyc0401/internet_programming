@@ -2,9 +2,10 @@ import {Provider} from "../../providerJS/provider.js";
 import {GameViewModel} from "../model/game_viewmodel.js";
 import {Direction, Entity} from "../model/game.js";
 
-
+const URLSearch = new URLSearchParams(location.search);
+let stageNum = URLSearch.get("stage");
 Provider.instance({
-    model: new GameViewModel()
+    model: new GameViewModel(stageNum)
 })
     .watch(model => {
         let boards = document.getElementsByClassName("board");

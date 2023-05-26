@@ -1,44 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--http://localhost:8080/admin/addMap.html-->
 <head>
     <meta charset="UTF-8">
     <title>addMap</title>
-    <script>
-        const stage1 = [
-            [1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0],
-            [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
-        ];
+    <script type="module">
+        import {dataList} from "./addStage.js";
+
+        console.log(dataList)
+
+        function initStages() {
+
+            for (let i = 0; i < dataList.length; i++) {
+                let param = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(dataList[i])
+                };
+                addStage(param)
+            }
+        }
+
+        window.onload = function () {
+            let initButton = document.getElementById("init");
+            initButton.onclick = function () {
+                initStages();
+            }
+        }
 
 
-        let param = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                "number": 1,
-                "name": "tutorial",
-                "star1": 20,
-                "star2": 15,
-                "star3": 10,
-                "map": JSON.stringify(stage1)
-            })
-        };
-
-        function addStage() {
+        function addStage(param) {
             fetch('http://localhost:8080/stage/add', param)
                 .then(response => {
                     if (response.ok) {
@@ -54,8 +47,8 @@
                     console.error('Error:', error);
                 });
         }
-
-
+    </script>
+    <script>
         function getStage(number) {
             fetch(`http://localhost:8080/stage?stage=${number}`)
                 .then(response => {
@@ -74,13 +67,11 @@
                     console.error('Error:', error);
                 });
         }
-
-
     </script>
 </head>
 
 <body>
-
+<button id="init" onclick="initStages()">스테이지 모두 추가</button>
 <button onclick="addStage()">스테이지 추가</button>
 <button onclick="getStage(1)">스테이지 가져오기</button>
 

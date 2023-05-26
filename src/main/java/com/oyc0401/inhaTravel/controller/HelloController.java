@@ -1,13 +1,11 @@
 package com.oyc0401.inhaTravel.controller;
 
-import com.oyc0401.inhaTravel.domain.User;
 import com.oyc0401.inhaTravel.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HelloController {
@@ -36,8 +34,9 @@ public class HelloController {
 //    }
 
     @GetMapping("/game")
-    public String game() {
-        return "game";
+    public String game(@RequestParam("stage") String stageNum, Model model) {
+        model.addAttribute("stage", stageNum);
+        return "stage";
     }
 
 

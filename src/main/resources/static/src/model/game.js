@@ -1,13 +1,12 @@
 import {Board} from "./board.js";
 
 class Pos {
+    x;
+    y;
     constructor(x, y) {
         this.x = x;
         this.y = y;
     }
-
-    x;
-    y;
 }
 
 export class Game {

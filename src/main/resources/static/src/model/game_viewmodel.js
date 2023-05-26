@@ -2,18 +2,19 @@ import {ChangeNotifier} from "../../providerJS/provider.js";
 import {Activity, Game} from "./game.js";
 import {getStage} from "./api.js";
 
-
 export class GameViewModel extends ChangeNotifier {
     game;
     moveType = 0;
+    StageNumber = 1;
 
-    constructor() {
+    constructor(StageNumber) {
         super();
+        this.StageNumber = StageNumber;
         this.init();
     }
 
     async init() {
-        let map = await getStage(1)
+        let map = await getStage(this.StageNumber)
         console.log(map.map);
         this.game = Game.fromStage(map.map);
         this.notifyListeners();
