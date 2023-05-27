@@ -1,11 +1,13 @@
-import {Provider} from "../providerJS/provider.js";
-import {GameViewModel} from "./game_viewmodel.js";
+import {Provider} from "../../providerJS/provider.js";
+import {GameViewModel} from "./stage-model.js";
 import {Direction, Entity} from "./game.js";
+import {clearStage} from "./api.js";
 
 const URLSearch = new URLSearchParams(location.search);
-let stageNum = URLSearch.get("stage");
+let stageId = URLSearch.get("stage");
+
 Provider.instance({
-    model: new GameViewModel(stageNum)
+    model: new GameViewModel(stageId)
 })
     .watch(model => {
         let boards = document.getElementsByClassName("board");
@@ -80,7 +82,15 @@ Provider.instance({
                     break;
             }
             if (goal) {
-                alert("스테이지 클리어!", `${model.game.round}회`);
+
+                clearStage(stageId, model.game.round).then(() => {
+                    console.log(`스테이지 클리어! ${model.game.round}회`)
+                    window.location.replace('http://localhost:8080')
+                });
+
+                // alert(`스테이지 클리어! ${model.game.round}회`);
+
+
             }
 
         });

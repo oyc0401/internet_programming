@@ -1,10 +1,7 @@
-getProfile();
-
-async function getProfile() {
+export async function check() {
     try {
         const response = await fetch('http://localhost:8080/api/profile');
         if (response.ok) {
-            // const data = await response.json();
         } else if (response.status === 401) {
             console.log("로그인이 필요합니다.")
             window.location.replace('http://localhost:8080/login')
@@ -14,8 +11,46 @@ async function getProfile() {
     }
 }
 
+export async function getProfile() {
+    try {
+        const response = await fetch('http://localhost:8080/api/profile');
+        if (response.ok) {
+            return response.json();
+        } else if (response.status === 401) {
+            console.log("로그인이 필요합니다.")
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
 
-async function logout() {
+export async function getStages() {
+    try {
+        const response = await fetch('http://localhost:8080/stage/stages');
+        if (response.ok) {
+            return response.json();
+        } else if (response.status === 401) {
+            console.log("로그인이 필요합니다.")
+            window.location.replace('http://localhost:8080/login')
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+export async function getUserRank() {
+    try {
+        const response = await fetch('http://localhost:8080/stage/rank');
+        if (response.ok) {
+            return response.json();
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+
+export async function logout() {
     let param = {
         method: 'POST',
         headers: {
@@ -36,7 +71,7 @@ async function logout() {
 }
 
 
-async function deleteUser() {
+export async function deleteUser() {
     let param = {
         method: 'DELETE',
         headers: {
@@ -57,4 +92,3 @@ async function deleteUser() {
         console.error('Error:', error);
     }
 }
-

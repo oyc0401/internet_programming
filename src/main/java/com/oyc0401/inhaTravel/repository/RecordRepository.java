@@ -11,4 +11,12 @@ import java.util.Optional;
 @Repository
 public interface RecordRepository extends JpaRepository<Record, Long> {
     Optional<Record> findByUserIdAndStageId(Long userId, Long stageId);
+
+    List<Record> findByStageIdOrderByMoveAsc(Long stageId);
+
+    List<Record> findByUserId(Long userId);
+
+    List<Record> findByStageId(Long stageId);
+
+    void deleteByUserId(Long userId);
 }

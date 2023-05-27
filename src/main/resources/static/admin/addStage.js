@@ -141,5 +141,7 @@ const stage5Data = {
     "map": JSON.stringify(stage5)
 }
 
+let js = JSON.stringify(stage5Data);
+
 
 export let dataList = [stage1Data, stage2Data, stage3Data, stage4Data, stage5Data]

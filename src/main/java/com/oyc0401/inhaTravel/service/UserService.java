@@ -1,7 +1,9 @@
 package com.oyc0401.inhaTravel.service;
 
 import com.oyc0401.inhaTravel.domain.User;
+import com.oyc0401.inhaTravel.repository.RecordRepository;
 import com.oyc0401.inhaTravel.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,10 +13,12 @@ import java.util.List;
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final RecordRepository recordRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, RecordRepository recordRepository) {
         this.userRepository = userRepository;
+        this.recordRepository = recordRepository;
     }
 
     // 로그인
@@ -49,8 +53,11 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    @Transactional
     public boolean deleteUserById(Long id) {
         if (userRepository.existsById(id)) {
+            // 유저의 모든 클리어기록을 삭제한다.
+            recordRepository.deleteByUserId(id);
             userRepository.deleteById(id);
             return true;
         }

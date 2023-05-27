@@ -1,0 +1,99 @@
+body{
+    background-color: blanchedalmond;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#stage-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+
+.stage-button {
+    display: block;
+    width: 200px;
+    height: 60px;
+    background-color: #3f72af;
+    color: white;
+    text-align: center;
+    line-height: 60px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.top-right {
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.ranking-button {
+    margin-bottom: 10px;
+}
+
+.ranking-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.rank {
+    margin-right: 10px;
+}
+
+.nickname {
+    margin-right: 10px;
+}
+
+.star,
+.move {
+    font-weight: bold;
+}
+

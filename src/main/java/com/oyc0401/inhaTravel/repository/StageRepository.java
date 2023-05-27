@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface StageRepository extends JpaRepository<Stage, Long> {
     @Query("SELECT CASE " +
@@ -17,5 +19,6 @@ public interface StageRepository extends JpaRepository<Stage, Long> {
             "FROM Stage e " +
             "WHERE e.id = :id")
     Integer getResultByIdAndMove(@Param("id") Long id, @Param("move") int move);
+
 
 }

@@ -3,37 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>인하의 모험</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-    <script src="screens/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="src/index/index.css">
+    <script type="module" src="src/index/index.js"></script>
 </head>
 <body>
 <div class="container">
-    <div class="drawer">
-        <button class="drawer-icon"><i class="fas fa-bars"></i></button>
-        <div class="drawer-content">
-            <ul>
-                <li><a href="#">내정보 보기</a></li>
-                <li><a href="#">로그아웃</a></li>
-                <li><a href="#">회원탈퇴</a></li>
-            </ul>
-        </div>
+    <div class="header">
+        <a href="#" id="logout-button">Logout</a>
+        <a href="#" id="withdraw-button">Withdraw</a>
+        <a href="#" id="profile-button">My Info</a>
     </div>
-    <h1>인하의 모험</h1>
-    <div class="menu-shortcut">
-        <ul>
-            <li><a href="game?stage=1">1 스테이지</a></li>
-            <li><a href="game?stage=2">2 스테이지</a></li>
-            <li><a href="game?stage=3">3 스테이지</a></li>
-            <li><a href="game?stage=4">4 스테이지</a></li>
-            <li><a href="game?stage=5">5 스테이지</a></li>
-        </ul>
+    <div class="center">
+        <h1>Game Main Page</h1>
+        <div id="stage-buttons"></div>
     </div>
-    <div class="ranking-shortcut">
-        <button><i class="fas fa-medal"></i> 랭킹표</button>
+    <div class="top-right">
+        <h3>Rankings</h3>
+        <div id="rankings"></div>
     </div>
 </div>
-
 </body>
 </html>

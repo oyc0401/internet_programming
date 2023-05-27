@@ -7,8 +7,6 @@
     <script type="module">
         import {dataList} from "./addStage.js";
 
-        console.log(dataList)
-
         function initStages() {
 
             for (let i = 0; i < dataList.length; i++) {
@@ -31,21 +29,17 @@
         }
 
 
-        function addStage(param) {
-            fetch('http://localhost:8080/stage/add', param)
-                .then(response => {
-                    if (response.ok) {
-                        return response.json();
-                    } else {
-                        throw new Error('Error: ' + response.status);
-                    }
-                })
-                .then(data => {
-                    console.log(data);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+        async function addStage(param) {
+            try {
+                let response = await fetch('http://localhost:8080/stage/add', param)
+                console.log(response)
+                if (response.ok) {
+                    let msg = await response.json();
+                    console.log(msg)
+                }
+            } catch (error) {
+                console.log(error);
+            }
         }
     </script>
     <script>
@@ -72,7 +66,7 @@
 
 <body>
 <button id="init" onclick="initStages()">스테이지 모두 추가</button>
-<button onclick="addStage()">스테이지 추가</button>
+<!--<button onclick="addStage()">스테이지 추가</button>-->
 <button onclick="getStage(1)">스테이지 가져오기</button>
 
 </body>

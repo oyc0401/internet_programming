@@ -30,6 +30,7 @@ async function login() {
 const signupBody = {
     "username": username,
     "password": password,
+    "nickname": "초코"
 }
 
 async function signup() {
