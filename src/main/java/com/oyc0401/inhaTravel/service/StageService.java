@@ -97,21 +97,39 @@ public class StageService {
     // 내가 플레이 가능한 맵들을 보여준다.
     // 클리어했다면 내 점수도 보여준다.
     public List<StageInformation> getMyStages(Long userId) {
+        // 클리어한 기록
         List<Record> records = recordRepository.findByUserId(userId);
-        int clearCount = records.size();
+        int recordCount = records.size();
 
+        // 모든 스테이지
         List<Stage> stages = stageRepository.findAll();
         int stageCount = stages.size();
 
+        // 보낼 데이터
         List<StageInformation> infoList = new ArrayList<>(stageCount);
 
+        // 스테이지 순회
         for (int i = 0; i < stageCount; i++) {
             StageInformation information = new StageInformation();
-            information.setStage(stages.get(i));
-            if (i < clearCount) {
-                information.setRecord(records.get(i));
+            Stage stage = stages.get(i);
+
+            information.setStage(stage);
+
+            // 클리어한 스테이지
+            if (i < recordCount) {
+                int move = records.get(i).getMove();
+                int star = calculateStar(stage.getId(), move);
+                information.setMove(move);
+                information.setStar(star);
                 information.setClear(true);
+                information.setUnlock(true);
             }
+            // 플레이 가능한 스테이지
+            if (i == recordCount) {
+                information.setStar(0);
+                information.setUnlock(true);
+            }
+
             infoList.add(information);
         }
 

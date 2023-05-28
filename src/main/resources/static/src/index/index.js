@@ -31,13 +31,51 @@ Provider.instance({
         while (stageButtonsContainer.firstChild) {
             stageButtonsContainer.firstChild.remove();
         }
-        if(model.complete){
+        if (model.complete) {
             console.log(model.stages)
+
             for (const stage of model.stages) {
                 const stageButton = document.createElement('a');
                 stageButton.classList.add('stage-button');
                 stageButton.textContent = stage.stage.name;
-                stageButton.href = `game?stage=${stage.stage.id}`; // 스테이지 페이지로 연결할 링크 설정
+                // let starCount=stage.stage.
+
+                if (stage.unlock === true) {
+                    stageButton.classList.add('unlock');
+                    stageButton.href = `game?stage=${stage.stage.id}`; // 스테이지 페이지로 연결할 링크 설정
+
+                    const starIcons = document.createElement("div");
+                    starIcons.classList.add("star-icons");
+
+                    let starCount=stage.star;
+                    console.log(starCount)
+
+                    // 별 개수에 따라 노란색과 회색 별 생성
+                    for (let i = 0; i < starCount; i++) {
+                        const star = document.createElement("span");
+                        star.classList.add("star", "yellow");
+                        starIcons.appendChild(star);
+                    }
+
+                    for (let i = starCount; i < 3; i++) {
+                        const star = document.createElement("span");
+                        star.classList.add("star", "gray");
+                        starIcons.appendChild(star);
+                    }
+
+                    // 버튼에 별 아이콘 추가
+                    stageButton.appendChild(starIcons);
+
+                } else {
+                    stageButton.classList.add('lock');
+                }
+
+                if (stage.clear === true) {
+
+                } else {
+
+                }
+
 
                 stageButtonsContainer.appendChild(stageButton);
             }
@@ -53,24 +91,26 @@ Provider.instance({
 
         if (model.complete) {
             console.log(model.ranks)
-            model.ranks.forEach((ranking, index) => {
+            for (let i = 0; i < model.ranks.length; i++) {
+                let ranking = model.ranks[i];
+
                 const rankingItem = document.createElement('div');
                 rankingItem.classList.add('ranking-item');
 
                 const rank = document.createElement('span');
                 rank.classList.add('rank');
-                rank.textContent = index + 1;
+                rank.textContent = i + 1;
 
                 const nickname = document.createElement('span');
                 nickname.classList.add('nickname');
                 nickname.textContent = ranking.nickname;
 
                 const star = document.createElement('span');
-                star.classList.add('star');
+                star.classList.add('starText');
                 star.textContent = `Star: ${ranking.star}`;
 
                 const move = document.createElement('span');
-                move.classList.add('move');
+                move.classList.add('moveText');
                 move.textContent = `Move: ${ranking.move}`;
 
                 rankingItem.appendChild(rank);
@@ -80,7 +120,8 @@ Provider.instance({
 
                 // console.log(rankingsContainer)
                 rankingsContainer.appendChild(rankingItem);
-            });
+            }
+
         }
 
     })

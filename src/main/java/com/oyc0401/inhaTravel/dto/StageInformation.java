@@ -9,6 +9,8 @@ import lombok.Setter;
 @Getter
 public class StageInformation {
     Stage stage;
-    Record record = null;
     Boolean clear = false;
+    Boolean unlock = false;
+    int move;
+    int star;
 }
