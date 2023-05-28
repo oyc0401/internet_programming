@@ -37,6 +37,10 @@ public class UserController {
         if (request.getNickname().equals("")) {
             return ResponseEntity.badRequest().body("닉네임을 입력해주세요");
         }
+        if (request.getPassword().equals("")) {
+            return ResponseEntity.badRequest().body("비밀번호를 입력해주세요");
+        }
+
 
 
         userService.signup(request.getUsername(), request.getPassword(), request.getNickname());

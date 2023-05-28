@@ -9,6 +9,7 @@ let loginButton = document.getElementById("login-button")
 
 
 loginButton.onclick = function () {
+    event.preventDefault();
     let id = idForm.value;
     let password = passwordForm.value;
     login(id, password);

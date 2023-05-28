@@ -48,7 +48,6 @@ Provider.instance({
                     starIcons.classList.add("star-icons");
 
                     let starCount=stage.star;
-                    console.log(starCount)
 
                     // 별 개수에 따라 노란색과 회색 별 생성
                     for (let i = 0; i < starCount; i++) {

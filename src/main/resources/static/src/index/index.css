@@ -1,19 +1,19 @@
 body {
-    background-color: blanchedalmond;
-}
-
-.container {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #181e24;
+    font-family: "pixel", sans-serif;
     padding: 20px;
+    color: white;
 }
+
 
 .header {
     position: absolute;
     top: 20px;
     left: 20px;
-    display: flex;
+    color: black;
     flex-direction: column;
 }
 
@@ -57,16 +57,16 @@ body {
     line-height: 60px;
     padding: 12px;
     margin-bottom: 10px;
-    font-size: 18px;
+    font-size: 24px;
     text-decoration: none;
 }
 
 .unlock {
-    background-color: #3f72af;
+    background-color: #8751fb;
 }
 
 .lock {
-    background-color: #7e7e7e;
+    background-color: #5e586c;
 }
 
 /*별 아이콘*/
@@ -82,7 +82,7 @@ body {
 }
 
 .gray{
-    background: gray;
+    background: #5e586c;
 }
 .yellow{
     background: yellow;
@@ -91,7 +91,7 @@ body {
 /*랭킹*/
 
 .top-right {
-
+    color: black;
     position: absolute;
     top: 20px;
     right: 20px;
