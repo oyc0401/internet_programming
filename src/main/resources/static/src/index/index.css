@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'pixel';
+    src: url("../../assets/fonts/DungGeunMo.woff")
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -8,7 +13,69 @@ body {
     color: white;
 }
 
+h1 {
+    color: #a2ff7a;
+    font-size: 42px;
+}
 
+/*스테이지 버튼*/
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#stage-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.stage-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 290px;
+    /*height: 110px;*/
+    padding: 12px;
+    line-height: 36px;
+    color: white;
+    margin-bottom: 15px;
+    font-size: 28px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.unlock {
+    background-color: #8751fb;
+}
+
+.lock {
+    background-color: #5e586c;
+}
+
+/*별 아이콘*/
+.star-icons {
+    margin-top: 10px;
+    display: flex;
+}
+
+.star {
+    margin: 3px; /* 별 아이콘 사이의 간격 */
+}
+
+.gray {
+    color: #5e586c;
+}
+
+.yellow {
+    color: yellow;
+}
+
+/*프로필*/
 .header {
     position: absolute;
     top: 20px;
@@ -30,62 +97,6 @@ body {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-}
-
-/*스테이지 버튼*/
-.center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#stage-buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 200px;
-}
-
-.stage-button {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    color: white;
-    line-height: 60px;
-    padding: 12px;
-    margin-bottom: 10px;
-    font-size: 24px;
-    text-decoration: none;
-}
-
-.unlock {
-    background-color: #8751fb;
-}
-
-.lock {
-    background-color: #5e586c;
-}
-
-/*별 아이콘*/
-.star-icons {
-    display: flex;
-}
-
-.star {
-    width: 20px; /* 별 아이콘의 가로 크기 */
-    height: 20px; /* 별 아이콘의 세로 크기 */
-    background: black;
-    margin-right: 5px; /* 별 아이콘 사이의 간격 */
-}
-
-.gray{
-    background: #5e586c;
-}
-.yellow{
-    background: yellow;
 }
 
 /*랭킹*/

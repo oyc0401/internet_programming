@@ -32,7 +32,7 @@ export async function getStages() {
             return await response.json();
         } else if (response.status === 401) {
             console.log("로그인이 필요합니다.")
-            window.location.replace('http://localhost:8080/login')
+            // window.location.replace('http://localhost:8080/login')
         }
     } catch (error) {
         console.error('Error:', error);

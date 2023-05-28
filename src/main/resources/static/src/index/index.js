@@ -34,7 +34,7 @@ Provider.instance({
         if (model.complete) {
             console.log(model.stages)
 
-            for (const stage of model.stages) {
+            for (const stage of model.stagesDummy) {
                 const stageButton = document.createElement('a');
                 stageButton.classList.add('stage-button');
                 stageButton.textContent = stage.stage.name;
@@ -52,13 +52,13 @@ Provider.instance({
                     // 별 개수에 따라 노란색과 회색 별 생성
                     for (let i = 0; i < starCount; i++) {
                         const star = document.createElement("span");
-                        star.classList.add("star", "yellow");
+                        star.classList.add("star", "fa","fa-star","yellow");
                         starIcons.appendChild(star);
                     }
 
                     for (let i = starCount; i < 3; i++) {
                         const star = document.createElement("span");
-                        star.classList.add("star", "gray");
+                        star.classList.add("star", "fa","fa-star", "gray");
                         starIcons.appendChild(star);
                     }
 
