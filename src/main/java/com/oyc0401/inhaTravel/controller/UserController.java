@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "http://localhost:63342/, http://localhost:63343/, http://127.0.0.1:53649/")
 @RequestMapping("/api")
 public class UserController {
     private final UserService userService;
@@ -29,6 +31,13 @@ public class UserController {
         if (userService.existsByUsername(request.getUsername())) {
             return ResponseEntity.badRequest().body("Username is already taken!");
         }
+        if (request.getUsername().equals("")) {
+            return ResponseEntity.badRequest().body("아이디를 입력해주세요");
+        }
+        if (request.getNickname().equals("")) {
+            return ResponseEntity.badRequest().body("닉네임을 입력해주세요");
+        }
+
 
         userService.signup(request.getUsername(), request.getPassword(), request.getNickname());
 
@@ -43,6 +52,7 @@ public class UserController {
             HttpSession session = request.getSession();
             session.setAttribute("userId", user.get().getId());
 
+//            System.out.println(request.getSession().getId());
 
             return ResponseEntity.ok(user);
         }
@@ -73,7 +83,7 @@ public class UserController {
     public ResponseEntity<?> logout(HttpServletRequest request) {
         // 현재 세션 가져오기
         HttpSession session = request.getSession(false);
-        if(session!=null){
+        if (session != null) {
             session.invalidate(); // 세션 무효화
         }
 

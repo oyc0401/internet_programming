@@ -7,10 +7,12 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden;
 }
 
 .container {
     text-align: center;
+
 }
 
 h1 {
@@ -63,4 +65,21 @@ h1 {
 
 .signup-link a:hover {
     color: #654321;
+}
+
+
+/*토스트 메시지*/
+.notification-container {
+    background: rgba(0, 0, 0, .3);
+    border-radius: 10px 10px 0 0;
+    width: 400px;
+    padding: 22px 20px;
+    position: absolute;
+    text-align: center;
+    bottom: -70px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.notification-container.show {
+    transform: translateY(-69px);
 }

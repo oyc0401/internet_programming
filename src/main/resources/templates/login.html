@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <title>로그인 페이지</title>
     <link rel="stylesheet" type="text/css" href="src/login/login.css">
-    <script src="src/login/login.js"></script>
+    <script type="module" src="src/login/login.js" defer></script>
 </head>
 <body>
 <div class="container">
     <h1>인하 모험가</h1>
     <div class="login-form">
-        <input type="text" placeholder="아이디" required>
-        <input type="password" placeholder="비밀번호" required>
-        <button type="submit" onclick="login()">로그인</button>
+        <input id="id-form" type="text" placeholder="아이디" required>
+        <input id="password-form" type="password" placeholder="비밀번호" required>
+        <button id="login-button" type="submit">로그인</button>
     </div>
-    <p class="signup-link">계정이 없으신가요? <a onclick="signup()">회원가입</a></p>
+    <p class="signup-link">계정이 없으신가요? <a href="signup">회원가입</a></p>
 </div>
-
+<div class="notification-container" id="notification-container"></div>
 </body>
 </html>
+

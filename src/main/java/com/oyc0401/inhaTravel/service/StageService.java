@@ -14,10 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Comparator;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class StageService {
@@ -156,11 +153,14 @@ public class StageService {
             }
         }
 
-        // star 값으로 내림차순 정렬
-        ranks.sort(Comparator.comparingInt(Rank::getStar).reversed());
+        // Comparator를 사용하여 정렬 기준을 정의
+        Comparator<Rank> comparator = Comparator
+                .comparingInt(Rank::getStar) // star 값을 기준으로 정렬
+                .reversed() // 내림차순으로 정렬
+                .thenComparingInt(Rank::getMove); // star 값이 같은 경우 move 값을 기준으로 정렬
 
-        // star 값이 같은 경우 move 값으로 오름차순 정렬
-        ranks.sort(Comparator.comparingInt(Rank::getMove));
+        // List를 정렬
+        Collections.sort(ranks, comparator);
 
         return ranks;
     }
@@ -191,11 +191,15 @@ public class StageService {
             ranks.add(rank);
         }
 
-        // star 값으로 내림차순 정렬
-        ranks.sort(Comparator.comparingInt(Rank::getStar).reversed());
+        // Comparator를 사용하여 정렬 기준을 정의
+        Comparator<Rank> comparator = Comparator
+                .comparingInt(Rank::getStar) // star 값을 기준으로 정렬
+                .reversed() // 내림차순으로 정렬
+                .thenComparingInt(Rank::getMove); // star 값이 같은 경우 move 값을 기준으로 정렬
 
-        // star 값이 같은 경우 move 값으로 오름차순 정렬
-        ranks.sort(Comparator.comparingInt(Rank::getMove));
+        // List를 정렬
+        Collections.sort(ranks, comparator);
+
 
         return ranks;
     }

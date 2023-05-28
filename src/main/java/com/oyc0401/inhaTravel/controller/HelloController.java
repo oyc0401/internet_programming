@@ -33,6 +33,11 @@ public class HelloController {
         return "login";
     }
 
+    @GetMapping("/signup")
+    public String signup() {
+        return "signup";
+    }
+
     @GetMapping("/game")
     public String game(@RequestParam("stage") String stageNum, Model model) {
         model.addAttribute("stage", stageNum);

@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "http://localhost:63342/, http://localhost:63343/, http://127.0.0.1:53649/")
 @RequestMapping("/stage")
 public class StageController {
 
@@ -66,6 +68,9 @@ public class StageController {
     public ResponseEntity<?> getMyStage(HttpServletRequest request) {
         HttpSession session = request.getSession();
         Long userId = (Long) session.getAttribute("userId");
+
+//        System.out.println(request.getSession().getId());
+
         if (userId != null) {
             return ResponseEntity.ok(stageService.getMyStages(userId));
         }
