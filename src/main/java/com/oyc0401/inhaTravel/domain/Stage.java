@@ -14,6 +14,7 @@ public class Stage {
     private int star1;
     private int star2;
     private int star3;
+    private String name;
 
     @Column(length = 10000)
     private String map;

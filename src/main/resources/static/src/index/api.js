@@ -15,7 +15,8 @@ export async function getProfile() {
     try {
         const response = await fetch('http://localhost:8080/api/profile');
         if (response.ok) {
-            return response.json();
+            let data = await response.json();
+            return data.result;
         } else if (response.status === 401) {
             console.log("로그인이 필요합니다.")
         }
@@ -28,7 +29,7 @@ export async function getStages() {
     try {
         const response = await fetch('http://localhost:8080/stage/stages');
         if (response.ok) {
-            return response.json();
+            return await response.json();
         } else if (response.status === 401) {
             console.log("로그인이 필요합니다.")
             window.location.replace('http://localhost:8080/login')
@@ -42,7 +43,10 @@ export async function getUserRank() {
     try {
         const response = await fetch('http://localhost:8080/stage/rank');
         if (response.ok) {
-            return response.json();
+            // 데이터 처리
+            return await response.json();
+        } else {
+            throw new Error('Error: ' + response.status);
         }
     } catch (error) {
         console.error('Error:', error);

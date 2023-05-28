@@ -46,6 +46,7 @@ public class StageService {
             existingStage.setStar2(stage.getStar2());
             existingStage.setStar3(stage.getStar3());
             existingStage.setMap(stage.getMap());
+            existingStage.setName(stage.getName());
 
             // 업데이트된 엔티티 저장
             stageRepository.save(existingStage);
