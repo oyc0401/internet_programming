@@ -1,3 +1,9 @@
+export let dataList = []
+// 0: 빈공간
+// 1: 벽
+// 2: 플레이어
+// 3: 도착지
+
 const stage1 = [
     [1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -24,7 +30,7 @@ const stage1Data = {
     "star3": 10,
     "map": JSON.stringify(stage1)
 }
-
+dataList.push(stage1Data)
 
 // 스테이지 2
 const stage2 = [
@@ -53,7 +59,7 @@ const stage2Data = {
     "star3": 8,
     "map": JSON.stringify(stage2)
 }
-
+dataList.push(stage2Data)
 
 // 스테이지 3
 const stage3 = [
@@ -82,6 +88,7 @@ const stage3Data = {
     "star3": 13,
     "map": JSON.stringify(stage3)
 }
+dataList.push(stage3Data)
 
 
 // 스테이지 4
@@ -111,7 +118,7 @@ const stage4Data = {
     "star3": 8,
     "map": JSON.stringify(stage4)
 }
-
+dataList.push(stage4Data)
 
 // 스테이지 5
 const stage5 = [
@@ -140,8 +147,27 @@ const stage5Data = {
     "star3": 8,
     "map": JSON.stringify(stage5)
 }
+dataList.push(stage5Data)
 
-let js = JSON.stringify(stage5Data);
 
+// 스테이지 6
+const stage6 = [
+    [1, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 2, 0, 1, 1, 0, 0],
+    [0, 0, 0, 1, 0, 0, 0],
+    [0, 0, 0, 1, 0, 3, 0],
+    [0, 0, 0, 0, 1, 0, 1],
 
-export let dataList = [stage1Data, stage2Data, stage3Data, stage4Data, stage5Data]
+];
+
+const stage6Data = {
+    "id": 6,
+    "name": "short",
+    "star1": 10,
+    "star2": 7,
+    "star3": 4,
+    "map": JSON.stringify(stage6)
+}
+dataList.push(stage6Data)
+

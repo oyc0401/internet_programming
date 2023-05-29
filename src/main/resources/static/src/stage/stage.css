@@ -1,48 +1,130 @@
-tr, td {
+body {
+    background: #181e24;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/*메뉴*/
+.header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: black;
+    flex-direction: column;
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/*게임*/
+
+#game {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    /*padding: 16px;*/
+
+}
+
+#board-container {
+    display: flex;
+    /*height: 100%;*/
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    /*background: bisque;*/
+}
+
+table {
+    display: block;
+    border-collapse: collapse;
+    background: #f5f1ff;
+    padding: 8px;
+    margin: 8px;
+}
+
+.board {
     width: 30px;
     height: 30px;
-    background: white;
+    padding: 0;
+    margin: 0;
 }
 
-div {
-    text-align: center;
+.empty{
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    /*background: #f5f1ff;*/
+    background: #181e24;
 }
 
-div.moveTypeBtn {
+.wall{
+    background: #f5f1ff;
+}
+
+.player{
+    background: #8751fb;
+}
+
+.goal{
+    background: #a2ff7a;
+}
+
+/*카운터*/
+
+#counter{
+    color: white;
+    font-size: 32px;
+    line-height: 60px;
+}
+
+/*선택 버튼*/
+
+.action-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /*background: lavender;*/
+    width: 100%;
+    height: 200px;
+}
+
+.moveTypeBtn {
     display: inline-block;
     text-align: center;
-    width: 90px;
+    margin: 12px;
+    width: 120px;
     height: 60px;
     line-height: 60px;
-    border: 1px black solid;
+    /*border: 1px white solid;*/
     border-radius: 3px;
-
 }
 
-body {
-    background: dimgray;
+.moveTypeBtn {
+    cursor: pointer;
+    color: white;
+}
+
+
+.disable {
+    background: #dadada;
+    color: black;
 }
 
 .selected {
-    color: lightskyblue;
-}
-
-
-table {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 8px;
-    /*background: aqua;*/
-
-}
-
-#game {
-    text-align: center;
-    padding: 16px;
-    width: 800px;
-    background: white;
-}
-
-#test {
-    color: gold;
+    background: #7238ff;
 }

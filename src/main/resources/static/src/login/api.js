@@ -1,3 +1,17 @@
+export async function ifLoginMoveHome() {
+    try {
+        const response = await fetch('http://localhost:8080/api/profile');
+        if (response.ok) {
+            console.log("이미 로그인 되어있습니다.")
+            window.location.replace('http://localhost:8080')
+        } else if (response.status === 401) {
+
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
 export async function login(username, password) {
     const body = {
         "username": username,

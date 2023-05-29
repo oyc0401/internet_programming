@@ -8,7 +8,34 @@ let stageId = URLSearch.get("stage");
 
 Provider.instance({
     model: new GameViewModel(stageId)
+
 })
+    .watch(model => {
+    })
+    .watch(model => {
+
+        let boardContainer = document.getElementById("board-container");
+        while (boardContainer.firstChild) {
+            boardContainer.firstChild.remove();
+        }
+
+        let tableElement = document.createElement("table");
+        // board.id="board";
+        for (let i = 0; i < model.height; i++) {
+            let rowElement = document.createElement("tr");
+            rowElement.classList.add("row")
+
+            for (let k = 0; k < model.width; k++) {
+                let cellElement = document.createElement("td");
+                cellElement.classList.add("board");
+                rowElement.append(cellElement);
+            }
+
+            tableElement.appendChild(rowElement);
+        }
+
+        boardContainer.appendChild(tableElement);
+    })
     .watch(model => {
         let boards = document.getElementsByClassName("board");
 
@@ -18,16 +45,16 @@ Provider.instance({
             let stone = display[i];
             switch (stone) {
                 case Entity.empty:
-                    board.style.background = "burlywood";
+                    board.className = "board empty"
                     break;
                 case Entity.wall:
-                    board.style.background = "black";
+                    board.className = "board wall"
                     break;
                 case Entity.player:
-                    board.style.background = "red";
+                    board.className = "board player"
                     break;
                 case Entity.goal:
-                    board.style.background = "gold";
+                    board.className = "board goal"
                     break;
             }
 
@@ -37,14 +64,18 @@ Provider.instance({
         let moveTypeBtn = document.getElementsByClassName("moveTypeBtn");
         for (let i = 0; i < moveTypeBtn.length; i++) {
             if (i === model.moveType) {
-                moveTypeBtn[i].style.background = "lightskyblue";
+                moveTypeBtn[i].className = "moveTypeBtn selected"
             } else {
-                moveTypeBtn[i].style.background = "white";
+                moveTypeBtn[i].className = "moveTypeBtn disable"
+
+                // moveTypeBtn[i].style.background = "white";
             }
         }
     })
     .watch(model => {
-
+        // console.log(model.game.round);
+        let countText = document.getElementById("counter");
+        countText.textContent = `${model.game.round}`;
     })
     .read(model => {
         let moveTypeBtn = document.getElementsByClassName("moveTypeBtn");
@@ -56,7 +87,7 @@ Provider.instance({
     })
     .read(model => {
         window.addEventListener("keydown", (e) => {
-            // console.log(e);
+
             let goal = false;
             switch (e.code) {
                 case "ArrowRight":

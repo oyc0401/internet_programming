@@ -73,7 +73,7 @@ input::placeholder {
 }
 
 .login-form button:hover {
-    background-color: #6d29ff;
+    background-color: #9864ff;
 }
 
 .signup-link {
@@ -88,7 +88,7 @@ input::placeholder {
 }
 
 .signup-link a:hover {
-    color: #68ff23;
+    color: #c1ffa3;
 }
 
 #nickname-form{

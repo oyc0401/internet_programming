@@ -32,7 +32,9 @@ export async function getStages() {
             return await response.json();
         } else if (response.status === 401) {
             console.log("로그인이 필요합니다.")
-            // window.location.replace('http://localhost:8080/login')
+            window.location.replace('http://localhost:8080/login')
+
+            // 테스트: api 주석, stage 더미데이터
         }
     } catch (error) {
         console.error('Error:', error);
@@ -42,6 +44,22 @@ export async function getStages() {
 export async function getUserRank() {
     try {
         const response = await fetch('http://localhost:8080/stage/rank');
+        if (response.ok) {
+            // 데이터 처리
+            return await response.json();
+        } else {
+            throw new Error('Error: ' + response.status);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+
+
+export async function getStageRank(stageId) {
+    try {
+        const response = await fetch(`http://localhost:8080/stage/stageRank?stage=${stageId}`);
         if (response.ok) {
             // 데이터 처리
             return await response.json();
@@ -96,3 +114,6 @@ export async function deleteUser() {
         console.error('Error:', error);
     }
 }
+
+
+

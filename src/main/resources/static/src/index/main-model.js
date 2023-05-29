@@ -1,6 +1,6 @@
 import {ChangeNotifier} from "../../providerJS/provider.js";
 
-import {deleteUser, getProfile, getStages, getUserRank, logout} from "./api.js";
+import {deleteUser, getProfile, getStageRank, getStages, getUserRank, logout} from "./api.js";
 
 export class MainViewModel extends ChangeNotifier {
     nickname
@@ -8,7 +8,34 @@ export class MainViewModel extends ChangeNotifier {
     stages = []
     ranks = []
 
+    stageRank = []
+    stageStar1 = 20;
+    stageStar2 = 16;
+    stageStar3 = 12;
+    pointStage = 1;
+    stageName=""
 
+    hide = true;
+
+    async open(stageId) {
+        this.pointStage = stageId;
+        this.stageRank = await getStageRank(stageId);
+        let stageJson = this.stages[stageId - 1];
+        this.stageName = stageJson.stage.name;
+        this.stageStar1 = stageJson.stage.star1;
+        this.stageStar2 = stageJson.stage.star2;
+        this.stageStar3 = stageJson.stage.star3;
+
+        console.log( this.stageRank);
+
+        this.hide = false;
+        this.notifyListeners();
+    }
+
+    close() {
+        this.hide = true;
+        this.notifyListeners();
+    }
 
     complete = false;
 
@@ -39,9 +66,6 @@ export class MainViewModel extends ChangeNotifier {
     deleteUser() {
         deleteUser();
     }
-
-
-
 
 
     stagesDummy = [

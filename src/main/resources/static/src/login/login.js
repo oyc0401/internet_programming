@@ -1,4 +1,4 @@
-import {login} from "./api.js";
+import {ifLoginMoveHome, login} from "./api.js";
 
 
 let idForm = document.getElementById("id-form")
@@ -7,6 +7,7 @@ let passwordForm = document.getElementById("password-form")
 
 let loginButton = document.getElementById("login-button")
 
+ifLoginMoveHome();
 
 loginButton.onclick = function () {
     event.preventDefault();

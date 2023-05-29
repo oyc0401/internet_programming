@@ -3,6 +3,7 @@ import {Board} from "./board.js";
 class Pos {
     x;
     y;
+
     constructor(x, y) {
         this.x = x;
         this.y = y;
@@ -58,6 +59,7 @@ export class Game {
         let goal = this.board.at(pos.x, pos.y) === Entity.goal;
 
         if (valid) {
+            this.round += 1;
             this.board.set(this.px, this.py, Entity.empty);
             this.board.set(pos.x, pos.y, Entity.player);
             this.px = pos.x;
@@ -68,12 +70,16 @@ export class Game {
     }
 
     validate(x, y) {
+        if (this.px === x && this.py === y) {
+            return false;
+        }
+
         return this.board.at(x, y) !== Entity.wall;
     }
 
     // 1칸 이동
     walk(direction) {
-        this.round += 1;
+
         // left, right, up, down
         const dirX = [0, 0, -1, 1];
         const dirY = [-1, 1, 0, 0];
@@ -87,7 +93,6 @@ export class Game {
 
     // 2칸 이동, 벽 통과 가능
     jump(direction) {
-        this.round += 1;
         // left, right, up, down
         const dirX = [0, 0, -1, 1];
         const dirY = [-1, 1, 0, 0];
@@ -100,7 +105,6 @@ export class Game {
     }
 
     dash(direction) {
-        this.round += 1;
         // left, right, up, down
         const dirX = [0, 0, -1, 1];
         const dirY = [-1, 1, 0, 0];

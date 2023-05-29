@@ -4,22 +4,79 @@
     <meta charset="UTF-8">
     <title>인하의 모험</title>
     <link rel="stylesheet" type="text/css" href="src/index/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="module" src="src/index/index.js"></script>
+
 </head>
 <body>
-    <div class="header">
-        <a href="#" id="profile-button">Profile</a>
-        <a href="#" id="logout-button">Logout</a>
-        <a href="#" id="withdraw-button">WithDraw</a>
+<div class="header">
+    <a href="#" id="profile-button">Profile</a>
+    <a href="#" id="logout-button">Logout</a>
+    <a href="#" id="withdraw-button">WithDraw</a>
+</div>
+
+<h1>Inha Escape</h1>
+<div class="scroller">
+    <div id="stage-buttons"></div>
+</div>
+
+
+<div class="top-right white-box">
+    <h3>Rankings</h3>
+    <div class="ranking-title">
+        <span class="rank"></span>
+        <span class="nickname">닉네임</span>
+        <span class="starText">스타</span>
+        <span class="moveText">이동</span>
     </div>
-    <div class="center">
-        <h1>Game Main Page</h1>
-        <div id="stage-buttons"></div>
+    <div id="rankings"></div>
+</div>
+<div id="popup-center">
+    <div id="stage-info">
+        <div id="close-button" class="exit">X</div>
+        <div class="inner-right-top">
+            <div class="white-box">
+                <h3>Rankings</h3>
+                <div class="ranking-title">
+                    <span class="rank"></span>
+                    <span class="nickname">닉네임</span>
+                    <span class="starText">스타</span>
+                    <span class="moveText">이동</span>
+                </div>
+                <div id="stage-rankings"></div>
+            </div>
+        </div>
+        <div class="column">
+            <h1 id="stage-name"></h1>
+            <div class="star-score-container">
+                <div class="star fa fa-star yellow"></div>
+                <span class="star fa fa-star gray"></span>
+                <span class="star fa fa-star gray"></span>
+                <span id="star1-score">20</span>
+            </div>
+            <div class="star-score-container">
+                <span class="star fa fa-star yellow"></span>
+                <span class="star fa fa-star yellow"></span>
+                <span class="star fa fa-star gray"></span>
+                <span id="star2-score">16</span>
+            </div>
+            <div class="star-score-container">
+                <span class="star fa fa-star yellow"></span>
+                <span class="star fa fa-star yellow"></span>
+                <span class="star fa fa-star yellow"></span>
+                <span id="star3-score">12</span>
+            </div>
+
+            <div class="expanded"></div>
+            <a id="play-button">play</a>
+        </div>
     </div>
-    <div class="top-right">
-        <h3>Rankings</h3>
-        <div id="rankings"></div>
-    </div>
+
+</div>
+
+
+</div>
+
 
 </body>
 </html>

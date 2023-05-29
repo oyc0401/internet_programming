@@ -6,6 +6,8 @@ export class GameViewModel extends ChangeNotifier {
     game;
     moveType = 0;
     StageNumber = 1;
+    width = 0
+    height = 0
 
     constructor(StageNumber) {
         super();
@@ -15,7 +17,9 @@ export class GameViewModel extends ChangeNotifier {
 
     async init() {
         let map = await getStage(this.StageNumber)
-        console.log(map.map);
+        console.log(map);
+        this.height = map.map.length;
+        this.width = map.map[0].length;
         this.game = Game.fromStage(map.map);
         this.notifyListeners();
     }
@@ -41,7 +45,7 @@ export class GameViewModel extends ChangeNotifier {
             // 벽 만날때 까지 이동
             goal = this.game.move(Activity.dash, direction);
         }
-        console.log(goal)
+        // console.log(goal)
         this.notifyListeners();
         return goal;
     }
