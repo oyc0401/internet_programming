@@ -60,33 +60,51 @@ table {
 }
 
 .board {
+    text-align: center;
     width: 30px;
     height: 30px;
     padding: 0;
     margin: 0;
+
 }
 
-.empty{
+
+.empty {
     border: 1px solid rgba(255, 255, 255, 0.09);
     /*background: #f5f1ff;*/
     background: #181e24;
 }
 
-.wall{
+.wall {
     background: #f5f1ff;
 }
 
-.player{
+
+.goal {
+    background: #a2ff7a;
+}
+
+.entity {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.player {
     background: #8751fb;
 }
 
-.goal{
-    background: #a2ff7a;
+.entity.goal{
+    background: red;
 }
 
 /*카운터*/
 
-#counter{
+#counter {
     color: white;
     font-size: 32px;
     line-height: 60px;

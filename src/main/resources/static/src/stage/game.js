@@ -14,7 +14,14 @@ export class Game {
     width;
     height;
     board = new Board(1, 2);
+    entity = new Board(1, 2);
     round = 0;
+
+    px
+    py
+    goalPx
+    goalPy
+
 
 
     static fromStage(stage) {
@@ -28,15 +35,29 @@ export class Game {
         game.board = new Board(width, height);
         game.board.setMap(stage);
 
+        // 엔티티
+        game.entity = new Board(width, height);
+
         for (let i = 0; i < width; i++) {
             for (let j = 0; j < height; j++) {
                 if (stage[i][j] === Entity.player) {
                     game.px = i;
                     game.py = j;
-                    break;
+                }
+                if (stage[i][j] === Entity.goal) {
+                    game.goalPx = i;
+                    game.goalPy = j;
                 }
             }
         }
+        // 보드
+        game.board.set(game.px, game.py, Entity.empty);
+
+        // 엔티티
+        game.entity.set(game.px, game.py, Entity.player);
+        game.entity.set(game.goalPx, game.goalPy, Entity.goal);
+        // console.log(game.px, game.py)
+
 
         return game;
     }
@@ -56,16 +77,16 @@ export class Game {
         }
 
         let valid = this.validate(pos.x, pos.y);
-        let goal = this.board.at(pos.x, pos.y) === Entity.goal;
 
         if (valid) {
             this.round += 1;
-            this.board.set(this.px, this.py, Entity.empty);
-            this.board.set(pos.x, pos.y, Entity.player);
+            this.entity.set(this.px, this.py, Entity.empty);
+            this.entity.set(pos.x, pos.y, Entity.player);
             this.px = pos.x;
             this.py = pos.y;
         }
 
+        let goal = this.px === this.goalPx && this.py === this.goalPy;
         return goal;
     }
 

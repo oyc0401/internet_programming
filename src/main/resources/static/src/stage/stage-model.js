@@ -9,6 +9,8 @@ export class GameViewModel extends ChangeNotifier {
     width = 0
     height = 0
 
+    clear = false;
+
     constructor(StageNumber) {
         super();
         this.StageNumber = StageNumber;
@@ -32,27 +34,29 @@ export class GameViewModel extends ChangeNotifier {
 
 
     move(direction) {
-        let goal = false;
         if (this.moveType === 0) {
             // 1칸 이동
-            goal = this.game.move(Activity.walk, direction);
+            this.clear = this.game.move(Activity.walk, direction);
         }
         if (this.moveType === 1) {
             // 2칸 이동
-            goal = this.game.move(Activity.jump, direction);
+            this.clear = this.game.move(Activity.jump, direction);
         }
         if (this.moveType === 2) {
             // 벽 만날때 까지 이동
-            goal = this.game.move(Activity.dash, direction);
+            this.clear = this.game.move(Activity.dash, direction);
         }
         // console.log(goal)
         this.notifyListeners();
-        return goal;
     }
 
 
     getViewBoard() {
         return this.game.board.toList();
+    }
+
+    getViewEntity() {
+        return this.game.entity.toList();
     }
 
 }

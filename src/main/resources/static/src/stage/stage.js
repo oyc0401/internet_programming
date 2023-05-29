@@ -28,6 +28,9 @@ Provider.instance({
             for (let k = 0; k < model.width; k++) {
                 let cellElement = document.createElement("td");
                 cellElement.classList.add("board");
+                let entityElement = document.createElement("div");
+                entityElement.classList.add("entity");
+                cellElement.append(entityElement);
                 rowElement.append(cellElement);
             }
 
@@ -61,6 +64,28 @@ Provider.instance({
         }
     })
     .watch(model => {
+        let entities = document.getElementsByClassName("entity");
+
+        let display = model.getViewEntity();
+        for (let i = 0; i < entities.length; i++) {
+            let entity = entities[i];
+            let stone = display[i];
+            switch (stone) {
+                case Entity.empty:
+                    entity.className = "entity"
+                    break;
+                case Entity.player:
+                    entity.className = "entity player"
+                    break;
+                // case Entity.goal:
+                //     entity.className = "entity goal"
+                //     break;
+
+            }
+
+        }
+    })
+    .watch(model => {
         let moveTypeBtn = document.getElementsByClassName("moveTypeBtn");
         for (let i = 0; i < moveTypeBtn.length; i++) {
             if (i === model.moveType) {
@@ -87,20 +112,22 @@ Provider.instance({
     })
     .read(model => {
         window.addEventListener("keydown", (e) => {
+            if (model.clear){
+                return;
+            }
 
-            let goal = false;
             switch (e.code) {
                 case "ArrowRight":
-                    goal = model.move(Direction.right);
+                    model.move(Direction.right);
                     break;
                 case "ArrowLeft":
-                    goal = model.move(Direction.left);
+                    model.move(Direction.left);
                     break;
                 case "ArrowUp":
-                    goal = model.move(Direction.up);
+                    model.move(Direction.up);
                     break;
                 case "ArrowDown":
-                    goal = model.move(Direction.down);
+                    model.move(Direction.down);
                     break;
                 case "KeyQ":
                     model.setType(0);
@@ -112,18 +139,12 @@ Provider.instance({
                     model.setType(2);
                     break;
             }
-            if (goal) {
-
+            if (model.clear) {
                 clearStage(stageId, model.game.round).then(() => {
                     console.log(`스테이지 클리어! ${model.game.round}회`)
-                    window.location.replace('http://localhost:8080')
+                    // window.location.replace('http://localhost:8080')
                 });
-
-                // alert(`스테이지 클리어! ${model.game.round}회`);
-
-
             }
-
         });
     })
     .read(model => {
