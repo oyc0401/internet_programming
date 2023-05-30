@@ -2,6 +2,7 @@ import {ChangeNotifier} from "../../providerJS/provider.js";
 import {Activity, Game} from "./game.js";
 import {clearStage, getStage} from "../api/stageApi.js";
 import {isUser} from "../api/userApi.js";
+import {getUrl} from "../../navigator/navigator.js";
 
 export class GameViewModel extends ChangeNotifier {
     game;
@@ -46,7 +47,7 @@ export class GameViewModel extends ChangeNotifier {
         if (response.ok) {
         } else if (response.status === 401) {
             console.log("로그인을 다시 해주세요")
-            window.location.replace('http://localhost:8080/login')
+            location.replace(getUrl('/login'))
         } else {
             console.error(`${response.status}`)
         }

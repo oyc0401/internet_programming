@@ -2,6 +2,7 @@ import {ChangeNotifier} from "../../providerJS/provider.js";
 
 import {isUser, logout, deleteUser, getProfile} from "../api/userApi.js";
 import {getStages, getStageRank, getUserRank} from "../api/stageApi.js";
+import {getUrl} from "../../navigator/navigator.js";
 
 
 export class MainViewModel extends ChangeNotifier {
@@ -57,7 +58,7 @@ export class MainViewModel extends ChangeNotifier {
 
         } else if (isUserResponse.status === 401) {
             console.log("로그인을 다시 해주세요")
-            window.location.replace('http://localhost:8080/login')
+            location.replace(getUrl('/login'))
         }
 
         this.stages = await this.getStage();
@@ -76,7 +77,7 @@ export class MainViewModel extends ChangeNotifier {
             return await response.json();
         } else if (response.status === 401) {
             console.log("로그인이 필요합니다.")
-            window.location.replace('http://localhost:8080/login')
+            location.replace(getUrl('/login'))
         }
     }
 
@@ -117,7 +118,7 @@ export class MainViewModel extends ChangeNotifier {
     async logout() {
         let response = await logout();
         if (response.ok) {
-            window.location.replace('http://localhost:8080/login')
+            location.replace(getUrl('/login'))
         }
     }
 
@@ -126,10 +127,10 @@ export class MainViewModel extends ChangeNotifier {
         let response = await deleteUser();
         if (response.ok) {
             console.log("회원 탈퇴 성공")
-            window.location.replace('http://localhost:8080/login')
+            location.replace(getUrl('/login'))
         } else if (response.status === 401) {
             console.log("로그인이 필요합니다.")
-            window.location.replace('http://localhost:8080/login')
+            location.replace(getUrl('/login'))
         }
 
     }

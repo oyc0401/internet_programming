@@ -1,4 +1,5 @@
 import {isUser,login} from "../api/userApi.js";
+import {getUrl} from "../../navigator/navigator.js";
 
 
 let idForm = document.getElementById("id-form")
@@ -11,7 +12,7 @@ let loginButton = document.getElementById("login-button")
 const response = await isUser();
 if (response.ok) {
     console.log("이미 로그인 되어있습니다.")
-    window.location.replace('http://localhost:8080')
+    location.replace(getUrl('/'))
 }
 
 
@@ -22,7 +23,7 @@ loginButton.onclick = async function () {
 
     let response = await login(id, password);
     if (response.ok) {
-        window.location.replace('http://localhost:8080')
+        location.replace(getUrl('/'))
     } else if (response.status === 401) {
         showNotification();
     } else {

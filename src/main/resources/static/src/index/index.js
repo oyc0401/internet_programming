@@ -1,4 +1,6 @@
 // 데모 스테이지 데이터
+import {getUrl} from "../../navigator/navigator.js";
+
 const stages = [
     {id: 1, name: 'Stage 1'},
     {id: 2, name: 'Stage 2'},
@@ -262,8 +264,7 @@ Provider.instance({
 
         let playButton = document.getElementById("play-button");
         playButton.onclick = function () {
-            // console.log(`game?stage=${model.pointStage}`)
-            location.href = `http://localhost:8080/game?stage=${model.pointStage}`;
+            location.href = getUrl('/game', `?stage=${model.pointStage}`)
             model.close();
         }
     })

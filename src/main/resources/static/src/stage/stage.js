@@ -1,6 +1,7 @@
 import {Provider} from "../../providerJS/provider.js";
 import {GameViewModel} from "./stage-model.js";
 import {Direction, Entity} from "./game.js";
+import {getUrl} from "../../navigator/navigator.js";
 
 const URLSearch = new URLSearchParams(location.search);
 let stageId = URLSearch.get("stage");
@@ -173,7 +174,7 @@ Provider.instance({
         // 왼쪽 위 메뉴 버튼
         let menuButton = document.getElementById("menu");
         menuButton.onclick = function () {
-            location.replace('http://localhost:8080')
+            location.replace(getUrl('/'))
         }
 
         // 이동 타입 버튼
@@ -254,7 +255,7 @@ Provider.instance({
         // 메뉴 버튼
         let menuButton = document.getElementById("menu-button");
         menuButton.onclick = function () {
-            location.replace('http://localhost:8080')
+            location.replace(getUrl('/'))
         }
 
         // 다시하기 버튼
@@ -266,7 +267,7 @@ Provider.instance({
         // 다음 스테이지 버튼
         let nextButton = document.getElementById("next-button");
         nextButton.onclick = function () {
-            location.replace(`http://localhost:8080/game?stage=${model.stageId + 1}`)
+            location.replace(getUrl('/game',`?stage=${model.stageId + 1}`))
         }
     })
     .read(model => {
