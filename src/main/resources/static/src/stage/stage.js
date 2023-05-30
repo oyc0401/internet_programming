@@ -214,9 +214,10 @@ Provider.instance({
                         model.setType(2);
                         break;
                     case "Escape":
-                    case "KeyD":
+                    case "KeyM":
                         console.log("exit")
-                        location.replace('http://localhost:8080')
+                        let menuButton = document.getElementById("menu");
+                        menuButton.click();
                         break;
                 }
             }
@@ -225,8 +226,13 @@ Provider.instance({
                 switch (e.code) {
                     case "Enter":
                     case "Space":
-                        let nextButton = document.getElementById("next-button");
-                        nextButton.click();
+                        if (model.nextExist) {
+                            let nextButton = document.getElementById("next-button");
+                            nextButton.click();
+                        } else {
+                            let menuButton = document.getElementById("menu-button");
+                            menuButton.click();
+                        }
                         break;
                     case "KeyR":
                         let replayButton = document.getElementById("replay-button");
@@ -234,7 +240,8 @@ Provider.instance({
                         break;
                     case "KeyM":
                     case "Escape":
-                        location.replace('http://localhost:8080')
+                        let menuButton = document.getElementById("menu-button");
+                        menuButton.click();
                         break;
                 }
             }

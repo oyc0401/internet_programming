@@ -263,7 +263,7 @@ Provider.instance({
         let playButton = document.getElementById("play-button");
         playButton.onclick = function () {
             // console.log(`game?stage=${model.pointStage}`)
-            location.href = `game?stage=${model.pointStage}`;
+            location.href = `http://localhost:8080/game?stage=${model.pointStage}`;
             model.close();
         }
     })

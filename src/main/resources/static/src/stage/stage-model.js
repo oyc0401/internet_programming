@@ -1,6 +1,7 @@
 import {ChangeNotifier} from "../../providerJS/provider.js";
 import {Activity, Game} from "./game.js";
-import {clearStage, getStage, ifNotUserMoveLoginPage} from "./api.js";
+import {clearStage, getStage} from "../api/stageApi.js";
+import {isUser} from "../api/userApi.js";
 
 export class GameViewModel extends ChangeNotifier {
     game;
@@ -22,6 +23,7 @@ export class GameViewModel extends ChangeNotifier {
 
     async clearStage() {
         let data = await clearStage(this.stageId, this.game.round);
+
         console.log(data)
         this.clearStar = data.star;
         this.clearScore = data.move;
@@ -39,11 +41,40 @@ export class GameViewModel extends ChangeNotifier {
         // this.init();
     }
 
+    async ifNotUserMoveLoginPage() {
+        let response = await isUser();
+        if (response.ok) {
+        } else if (response.status === 401) {
+            console.log("로그인을 다시 해주세요")
+            window.location.replace('http://localhost:8080/login')
+        } else {
+            console.error(`${response.status}`)
+        }
+    }
+
+    // api
+    async stageget(stageId) {
+        const response = await getStage(stageId);
+        let stage = [[2]];
+
+        if (response.ok) {
+            const data = await response.json();
+            data.map = JSON.parse(data.map);
+            stage = data;
+        } else {
+            throw new Error('Error: ' + response.status);
+        }
+
+        return stage
+    }
+
+
     async init() {
         // 로그인 체크
-        await ifNotUserMoveLoginPage();
+        await this.ifNotUserMoveLoginPage();
 
-        let map = await getStage(this.stageId)
+
+        let map = await this.stageget(this.stageId)
         console.log(map);
         this.height = map.map.length;
         this.width = map.map[0].length;
