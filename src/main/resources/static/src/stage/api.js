@@ -1,3 +1,17 @@
+export async function ifNotUserMoveLoginPage() {
+    try {
+        const response = await fetch('http://localhost:8080/api/profile');
+        if (response.ok) {
+
+        } else if (response.status === 401) {
+            console.log("로그인을 다시 해주세요")
+            window.location.replace('http://localhost:8080/login')
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
 export async function getStage(number) {
     let stage = [[2]];
     try {
@@ -34,8 +48,8 @@ export async function clearStage(id, move) {
     try {
         const response = await fetch(`http://localhost:8080/stage/clear`, param);
         if (response.ok) {
-            const data = await response.json();
-            console.log(data);
+
+            return  await response.json();
 
         } else if (response.status === 401) {
             console.log("로그인을 다시 해주세요")

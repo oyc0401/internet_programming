@@ -190,6 +190,7 @@ h1 {
     color: goldenrod;
 }
 
+/*스테이지 정보*/
 #popup-center {
     display: flex;
     justify-content: center;
@@ -204,7 +205,7 @@ h1 {
     visibility: hidden;
 }
 
-/*스테이지 정보*/
+
 #stage-info {
     align-content: center;
     /*width: 100vw;*/

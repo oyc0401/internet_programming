@@ -1,6 +1,6 @@
 import {ChangeNotifier} from "../../providerJS/provider.js";
 
-import {deleteUser, getProfile, getStageRank, getStages, getUserRank, logout} from "./api.js";
+import {deleteUser, getProfile, getStageRank, getStages, getUserRank, ifNotUserMoveLoginPage, logout} from "./api.js";
 
 export class MainViewModel extends ChangeNotifier {
     nickname
@@ -46,6 +46,9 @@ export class MainViewModel extends ChangeNotifier {
     }
 
     async init() {
+        // 로그인 체크
+        await ifNotUserMoveLoginPage();
+
         this.stages = await getStages();
         this.ranks = await getUserRank();
         let js = getProfile();

@@ -5,10 +5,11 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class Rank {
-    Long userId;
-    String username;
-    String nickname;
+public class ClearResponse {
+
+    int rank;
     int star;
     int move;
+    boolean nextExist = true;
+
 }

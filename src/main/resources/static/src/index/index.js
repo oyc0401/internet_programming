@@ -267,6 +267,23 @@ Provider.instance({
             model.close();
         }
     })
+    /** 키보드 클릭 설정하기 */
+    .read(model => {
+        window.addEventListener("keydown", (e) => {
+            console.log(e)
+
+            // 스테이지 정보가 나올 때
+            if (!model.hide) {
+                switch (e.code) {
+                    case "Enter":
+                    case "Space":
+                        let playButton = document.getElementById("play-button");
+                        playButton.click();
+                        break;
+                }
+            }
+        }); // addEventListener
+    })
     .read(model => {
 
 

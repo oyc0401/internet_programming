@@ -1,9 +1,10 @@
-export async function check() {
+export async function ifNotUserMoveLoginPage() {
     try {
         const response = await fetch('http://localhost:8080/api/profile');
         if (response.ok) {
+
         } else if (response.status === 401) {
-            console.log("로그인이 필요합니다.")
+            console.log("로그인을 다시 해주세요")
             window.location.replace('http://localhost:8080/login')
         }
     } catch (error) {

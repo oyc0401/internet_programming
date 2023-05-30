@@ -4,6 +4,7 @@ package com.oyc0401.inhaTravel.service;
 import com.oyc0401.inhaTravel.domain.Record;
 import com.oyc0401.inhaTravel.domain.Stage;
 import com.oyc0401.inhaTravel.domain.User;
+import com.oyc0401.inhaTravel.dto.ClearResponse;
 import com.oyc0401.inhaTravel.dto.Rank;
 import com.oyc0401.inhaTravel.dto.StageInformation;
 import com.oyc0401.inhaTravel.repository.RecordRepository;
@@ -61,7 +62,7 @@ public class StageService {
 
     // 기록을 통해 클리어 처리를 한다.
     @Transactional
-    public int clear(Record record) {
+    public ClearResponse clear(Record record) {
         Optional<Record> existingRecordOptional = recordRepository.findByUserIdAndStageId(record.getUserId(), record.getStageId());
         if (existingRecordOptional.isPresent()) {
             Record existingRecord = existingRecordOptional.get();
@@ -73,7 +74,26 @@ public class StageService {
             recordRepository.save(record);
         }
 
-        return calculateStar(record.getStageId(), record.getMove());
+        ClearResponse clearResponse = new ClearResponse();
+        clearResponse.setMove(record.getMove());
+        clearResponse.setStar(calculateStar(record.getStageId(), record.getMove()));
+
+        Optional<Stage> nextStage = stageRepository.findById(record.getStageId() + 1);
+        clearResponse.setNextExist(nextStage.isPresent());
+
+        List<Rank> ranks = getStageRank(record.getStageId());
+
+        int myRank = 0;
+        for (int i = 0; i < ranks.size(); i++) {
+            if (ranks.get(i).getUserId() == record.getUserId()) {
+                myRank = i;
+            }
+        }
+
+        clearResponse.setRank(myRank + 1);
+
+
+        return clearResponse;
     }
 
     // 이동횟수를 통해 별을 몇개 얻었는지 알려준다.
@@ -147,6 +167,7 @@ public class StageService {
                 Rank rank = new Rank();
                 rank.setStar(star);
                 rank.setMove(record.getMove());
+                rank.setUserId(user.getId());
                 rank.setUsername(user.getUsername());
                 rank.setNickname(user.getNickname());
                 ranks.add(rank);
@@ -185,6 +206,7 @@ public class StageService {
             Rank rank = new Rank();
             rank.setStar(starSum);
             rank.setMove(moveSum);
+            rank.setUserId(user.getId());
             rank.setUsername(user.getUsername());
             rank.setNickname(user.getNickname());
 

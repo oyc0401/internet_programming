@@ -5,12 +5,40 @@
     <title>Title</title>
     <script type="module" src="src/stage/stage.js"></script>
     <link rel="stylesheet" href="src/stage/stage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<div id="game">
-    <div class="header">
-        <div id="menu" onclick="window.history.back()">메뉴 이동</div>
+
+<div class="header">
+    <div id="menu">메뉴 이동</div>
+</div>
+
+<div class="top-right white-box">
+    <h3 id="stage-name">tutorial</h3>
+    <div class="star-score-container">
+        <div class="star-score-container">
+            <div class="star fa fa-star yellow"></div>
+            <span class="star fa fa-star gray"></span>
+            <span class="star fa fa-star gray"></span>
+            <span id="star1-score">20</span>
+        </div>
+        <div class="star-score-container">
+            <span class="star fa fa-star yellow"></span>
+            <span class="star fa fa-star yellow"></span>
+            <span class="star fa fa-star gray"></span>
+            <span id="star2-score">16</span>
+        </div>
+        <div class="star-score-container">
+            <span class="star fa fa-star yellow"></span>
+            <span class="star fa fa-star yellow"></span>
+            <span class="star fa fa-star yellow"></span>
+            <span id="star3-score">12</span>
+        </div>
     </div>
+</div>
+<div id="game">
+
 
     <div id="board-container"></div>
     <div id="counter">0</div>
@@ -27,6 +55,42 @@
         </div>
     </div>
 
+
+</div>
+
+
+<div id="popup-center">
+    <div id="stage-info">
+        <div class="column">
+            <h2 id="clear-text">Stage 0 clear!</h2>
+            <div class="clear-star-container">
+                <span class="cleared star fa fa-star yellow"></span>
+                <span class="cleared star fa fa-star yellow"></span>
+                <span class="cleared star fa fa-star yellow"></span>
+                <span id="clear-score">12</span>
+            </div>
+            <span id="clear-rank">rank: 4</span>
+            <div class="expanded"></div>
+            <div class="row">
+                <a id="menu-button" class="clear-button">
+                    <span class="material-icons clear-icon">
+                   menu
+                    </span>
+                </a>
+                <a id="replay-button" class="clear-button">
+                    <span class="material-icons clear-icon">
+                    replay
+                    </span>
+                </a>
+                <a id="next-button" class="clear-button">
+                    <span class="material-icons clear-icon" >
+                    play_arrow
+                    </span>
+                </a>
+            </div>
+
+        </div>
+    </div>
 
 </div>
 

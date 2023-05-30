@@ -25,12 +25,12 @@ export class Provider {
         return this;
     }
 
-    read(read) {
-        if (typeof read != "function") {
+    read(listener) {
+        if (typeof listener != "function") {
             throw "Provider.read: 입력한 함수를 확인해주세요";
         }
 
-        read(this.#view_model);
+        listener(this.#view_model);
         return this;
     }
 
@@ -38,6 +38,14 @@ export class Provider {
         this.#view_model.notifyListeners();
     }
 
+    init(listener) {
+        if (typeof listener != "function") {
+            throw "Provider.init: 입력한 함수를 확인해주세요";
+        }
+
+        listener(this.#view_model);
+        return this;
+    }
 
     // watchItem({element, listener}) {
     //     if (typeof listener != "function") {
