@@ -1,0 +1,203 @@
+@font-face {
+    font-family: 'pixel';
+    src: url("../assets/fonts/DungGeunMo.woff")
+}
+
+
+body {
+    font-family: pixel;
+    background: #181e24;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/*메뉴*/
+.header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: black;
+    flex-direction: column;
+}
+.header-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+.top-right {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#stage-name{
+    /*display: inline;*/
+    color: #a2ff7a;
+    font-size: 24px;
+    margin-top: 15px;
+    word-break: break-all;
+}
+
+.white-box {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #8751fb;
+    color: white;
+    border-radius: 10px;
+}
+
+.star-score-container {
+    /*padding: 0px;*/
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+#star1-score,#star2-score,#star3-score{
+    display: inline-block;
+    width: 20px;
+}
+.gray {
+    color: #e7e7e7;
+}
+
+.yellow {
+    color: yellow;
+}
+
+
+
+/*게임*/
+
+#game {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    /*padding: 16px;*/
+
+}
+
+#board-container {
+    display: flex;
+    /*height: 100%;*/
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    /*background: bisque;*/
+}
+
+table {
+    display: block;
+    border-collapse: collapse;
+    background: #f5f1ff;
+    padding: 8px;
+    margin: 8px;
+}
+
+.board {
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+
+}
+
+
+.empty {
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    /*background: #f5f1ff;*/
+    background: #181e24;
+}
+
+.wall {
+    background: #f5f1ff;
+}
+
+
+.goal {
+    background: #a2ff7a;
+}
+
+.entity {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.player {
+    background: #8751fb;
+}
+
+.entity.goal{
+    background: red;
+}
+
+/*카운터*/
+
+#counter {
+    color: white;
+    font-size: 32px;
+    line-height: 60px;
+}
+
+/*선택 버튼*/
+
+.action-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /*background: lavender;*/
+    width: 100%;
+    height: 200px;
+}
+
+.moveTypeBtn {
+    display: inline-block;
+    text-align: center;
+    margin: 12px;
+    width: 120px;
+    height: 60px;
+    line-height: 60px;
+    /*border: 1px white solid;*/
+    border-radius: 3px;
+}
+
+.moveTypeBtn {
+    cursor: pointer;
+    color: white;
+}
+
+
+.disable {
+    background: #f5f1ff;
+    color: black;
+}
+
+.selected {
+    background: #7238ff;
+}
+
+

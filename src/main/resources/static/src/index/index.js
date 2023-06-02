@@ -1,25 +1,5 @@
 // 데모 스테이지 데이터
 import {getUrl} from "../../navigator/navigator.js";
-
-const stages = [
-    {id: 1, name: 'Stage 1'},
-    {id: 2, name: 'Stage 2'},
-    {id: 3, name: 'Stage 3'},
-    {id: 4, name: 'Stage 4'},
-    {id: 5, name: 'Stage 5'}
-];
-
-
-// // 데모 랭킹 데이터
-// const rankings = [
-//     {username: 'user1', nickname: 'Player 1', star: 3, move: 10},
-//     {username: 'user2', nickname: 'Player 2', star: 2, move: 15},
-//     {username: 'user3', nickname: 'Player 3', star: 3, move: 12},
-//     {username: 'user4', nickname: 'Player 4', star: 1, move: 18},
-//     {username: 'user5', nickname: 'Player 5', star: 2, move: 14}
-// ];
-
-
 import {MainViewModel} from "./main-model.js";
 import {Provider} from "../../providerJS/provider.js";
 
@@ -152,7 +132,6 @@ Provider.instance({
             rankingsContainer.firstChild.remove();
         }
         if (model.complete) {
-            console.log(model.stageRank)
             if (model.stageRank.length === 0) {
                 const rankingItem = document.createElement('div');
                 rankingItem.textContent = "랭킹이 없습니다.";

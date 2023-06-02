@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="module" src="mapEditor.js"></script>
+    <link rel="stylesheet" href="mapEditor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+<div class="header">
+    <div id="menu" class="header-box">메뉴 이동</div>
+    <div id="bring" class="header-box">불러오기</div>
+</div>
+
+<div class="top-right white-box">
+    <h3 id="stage-name">tutorial</h3>
+    <form action="">
+        <input type="text" id="name-form">
+
+        <input type="text" id="star1-form">
+        <input type="text" id="star2-form">
+        <input type="text" id="star3-form">
+
+        사이즈
+        <input type="text" id="width-form">
+        <input type="text" id="height-form">
+        <div id="change-size">적용</div>
+    </form>
+    
+</div>
+<div id="game">
+
+
+    <div id="board-container"></div>
+<!--    <div id="counter">0</div>-->
+
+    <div class="action-container">
+        <div class="moveTypeBtn">
+            지우기
+        </div>
+        <div class="moveTypeBtn">
+           벽
+        </div>
+        <div class="moveTypeBtn">
+            플레이어
+        </div>
+        <div class="moveTypeBtn">
+            골대
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
