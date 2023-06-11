@@ -183,8 +183,23 @@ Provider.instance({
     })
     .watch(model => {
 
+        let adminButton = document.getElementById("admin-button");
+        if(model.admin){
+            adminButton.style.visibility="visible"
+        }else{
+            adminButton.style.visibility="hidden"
+        }
+        adminButton.onclick = function () {
+            if(model.admin){
+                location.href = getUrl('/admin')
+            }
+
+        }
     })
     .read(model => {
+
+
+
         let profileButton = document.getElementById("profile-button");
         profileButton.onclick = function () {
             model.profile();
@@ -198,6 +213,9 @@ Provider.instance({
         withDrawButton.onclick = function () {
             model.deleteUser();
         }
+
+
+
     })
     .watch(model => {
         let stageName = document.getElementById("stage-name");

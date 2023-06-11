@@ -44,5 +44,17 @@ public class HelloController {
         return "stage";
     }
 
+    @GetMapping("/admin/home")
+    public String admin() {
+        return "admin/home";
+    }
+
+    @GetMapping("/admin/edit")
+    public String edit(@RequestParam("stage") String stageNum, Model model) {
+        model.addAttribute("stage", stageNum);
+        return "admin/mapEditor";
+    }
+
+
 
 }

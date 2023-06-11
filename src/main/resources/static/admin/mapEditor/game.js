@@ -13,15 +13,19 @@ export class Game {
     goalPy
 
     changeSize(width, height) {
+
         let newBoard = new Board(width, height);
         let newEntity = new Board(width, height);
 
-        for (let i = 0; i < this.width || i < width; i++) {
-            for (let k = 0; k < this.height || k < height; k++) {
+        for (let i = 0; i < this.width && i < width; i++) {
+            for (let k = 0; k < this.height && k < height; k++) {
+
                 newBoard.set(i, k, this.board.at(i, k));
                 newEntity.set(i, k, this.entity.at(i, k));
             }
         }
+        this.width=width
+        this.height=height
         console.log(width,height);
         this.board = newBoard;
         this.entity = newEntity;
@@ -39,8 +43,10 @@ export class Game {
         game.py = 0;
         game.goalPx = width - 1;
         game.goalPy = height - 1;
+
         game.entity.set(game.px, game.py, Entity.player);
-        game.entity.set(game.goalPx, game.goalPy, Entity.goal);
+        game.board.set(game.px, game.py, Entity.player);
+        game.board.set(game.goalPx, game.goalPy, Entity.goal);
 
         return game;
 
@@ -74,7 +80,6 @@ export class Game {
             }
         }
         // 보드
-        game.board.set(game.px, game.py, Entity.empty);
 
         // 엔티티
         game.entity.set(game.px, game.py, Entity.player);

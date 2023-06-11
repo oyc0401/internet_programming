@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'pixel';
-    src: url("../assets/fonts/DungGeunMo.woff")
+    src: url("../../assets/fonts/DungGeunMo.woff")
 }
 
 
@@ -34,6 +34,21 @@ body {
     cursor: pointer;
 }
 
+input{
+    display: block;
+    border: none;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 130px;
+    background: #d6c5ff;
+}
+
+.btn{
+    width: 40px;
+    background: #a2ff7a;
+    color: black;
+}
+
 
 .top-right {
     position: absolute;
@@ -50,7 +65,7 @@ body {
 }
 
 .white-box {
-    width: 120px;
+    width: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;

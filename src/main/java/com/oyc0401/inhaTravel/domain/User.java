@@ -21,5 +21,6 @@ public class User {
     private int clearStage = 0;
     private int star = 0;
     private int moveSum = 0;
+    private boolean admin = false;
 
 }

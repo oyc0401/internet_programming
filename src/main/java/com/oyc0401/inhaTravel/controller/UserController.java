@@ -90,8 +90,6 @@ public class UserController {
         if (session != null) {
             session.invalidate(); // 세션 무효화
         }
-
-
         return ResponseEntity.ok("Logged out successfully");
     }
 

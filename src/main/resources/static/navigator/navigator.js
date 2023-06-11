@@ -50,7 +50,12 @@ function getPath(path, server = true) {
             return (server ? "/signup" : "/signup.html");
         case "/game":
             return (server ? "/game" : "/game.html");
+        case "/admin":
+            return (server ? "/admin/home" : "/home.html");
+        case "/edit":
+            return (server ? "/admin/edit" : "/edit.html");
         default:
+            console.log(path)
             throw "Path가 잘못 입력되었습니다.";
     }
 }

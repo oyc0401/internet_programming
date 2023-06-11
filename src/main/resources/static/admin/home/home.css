@@ -1,0 +1,281 @@
+@font-face {
+    font-family: 'pixel';
+    src: url("../../assets/fonts/DungGeunMo.woff")
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: #181e24;
+    font-family: "pixel", sans-serif;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0;
+    color: white;
+    overflow: hidden;
+    height: 100vh;
+
+}
+
+h1 {
+    color: #a2ff7a;
+    font-size: 42px;
+
+}
+
+/*스테이지 버튼*/
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.scroller {
+    overflow: scroll;
+    /*background: blanchedalmond;*/
+    flex-grow: 1;
+}
+
+.scroller::-webkit-scrollbar {
+    display: none;
+}
+
+#stage-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.stage-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 290px;
+    /*height: 110px;*/
+    padding: 12px;
+    line-height: 36px;
+    color: white;
+    margin-bottom: 15px;
+    font-size: 28px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.unlock {
+    background-color: #8751fb;
+}
+
+.unlock:hover {
+    background-color: #9864ff;
+    cursor: pointer;
+}
+
+.lock {
+    background-color: #5e586c;
+}
+
+.lock:hover {
+    cursor: pointer;
+}
+
+/*별 아이콘*/
+.star-icons {
+    margin-top: 10px;
+    display: flex;
+}
+
+.star {
+    margin: 3px; /* 별 아이콘 사이의 간격 */
+}
+
+.gray {
+    color: #5e586c;
+}
+
+.yellow {
+    color: yellow;
+}
+
+/*프로필*/
+.header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: black;
+    flex-direction: column;
+}
+
+.header a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/*랭킹*/
+
+.top-right {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.white-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    background-color: #fff;
+    color: black;
+    border-radius: 10px;
+}
+
+.ranking-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #8751fb;
+}
+
+.ranking-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.rank {
+    font-weight: bold;
+    width: 20px;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.nickname {
+    width: 80px;
+    text-align: left;
+    margin-right: 10px;
+}
+
+.starText,
+.moveText {
+    width: 50px;
+}
+
+.gold {
+    color: gold;
+}
+
+.silver {
+    color: silver;
+}
+
+.bronze {
+    color: goldenrod;
+}
+
+/*스테이지 정보*/
+#popup-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.3);
+    visibility: hidden;
+}
+
+
+#stage-info {
+    align-content: center;
+    /*width: 100vw;*/
+    /*margin: 200px;*/
+    width: 1000px;
+    height: 500px;
+    /*height: calc(100vh - 200px);*/
+    background: #8751fb;
+    border-radius: 20px;
+
+}
+
+
+.column {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    /*background: darkviolet;*/
+}
+
+.star-score-container {
+    /*padding: 0px;*/
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+
+.exit {
+    position: absolute;
+    /*left: 200px;*/
+    left: calc(100vw/2 - 500px);
+    font-size: 42px;
+    margin: 30px;
+    cursor: pointer;
+}
+
+.inner-right-top {
+    position: absolute;
+    /*right: 220px;*/
+    right: calc(100vw/2 - 500px + 20px);
+    /*top: 200px;*/
+    padding: 20px;
+}
+
+.expanded {
+    flex-grow: 1;
+    /*background: darkseagreen;*/
+}
+
+#play-button {
+    align-items: center;
+    width: 290px;
+    padding: 12px;
+    line-height: 36px;
+    color: #3a3a02;
+    margin-bottom: 45px;
+    font-size: 28px;
+    text-decoration: none;
+    border-radius: 10px;
+    background: #a2ff7a;
+}
+
+#play-button:hover {
+    background: #c1ffa3;
+    cursor: pointer;
+}
+
+#star1-score,#star2-score,#star3-score{
+    display: inline-block;
+    width: 60px;
+}
+

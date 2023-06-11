@@ -17,7 +17,6 @@ export class MainViewModel extends ChangeNotifier {
     stageStar3 = 12;
     pointStage = 1;
     stageName = ""
-    admin = false
 
     hide = true;
 
@@ -56,11 +55,7 @@ export class MainViewModel extends ChangeNotifier {
 
         let isUserResponse = await isUser();
         if (isUserResponse.ok) {
-            const data = await isUserResponse.json();
-            console.log(data)
-            this.admin = data.admin;
-            // data.map = JSON.parse(data.map);
-            // admin=data
+
         } else if (isUserResponse.status === 401) {
             console.log("로그인을 다시 해주세요")
             location.replace(getUrl('/login'))

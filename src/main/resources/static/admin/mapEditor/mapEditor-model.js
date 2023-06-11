@@ -1,8 +1,8 @@
-import {ChangeNotifier} from "../providerJS/provider.js";
+import {ChangeNotifier} from "../../providerJS/provider.js";
 import {Activity, Entity, Game} from "./game.js";
-import {clearStage, getStage} from "../src/api/stageApi.js";
-import {isUser} from "../src/api/userApi.js";
-import {getUrl} from "../navigator/navigator.js";
+import {clearStage, getStage} from "../../src/api/stageApi.js";
+import {isUser} from "../../src/api/userApi.js";
+import {getUrl} from "../../navigator/navigator.js";
 
 export class GameViewModel extends ChangeNotifier {
     game;
@@ -14,6 +14,7 @@ export class GameViewModel extends ChangeNotifier {
     star1 = 0
     star2 = 0
     star3 = 0
+    admin = false
 
 
     constructor(stageId) {
@@ -58,7 +59,6 @@ export class GameViewModel extends ChangeNotifier {
         this.height = map.map.length;
         this.width = map.map[0].length;
         this.game = Game.fromStage(map.map);
-
         this.stageName = map.name
         // this.stageName = "3w21312312312312"
         this.star1 = map.star1
@@ -69,18 +69,17 @@ export class GameViewModel extends ChangeNotifier {
     }
 
 
-    async write(){
-        this.game=Game.createGame(this.width,this.height);
+    async write() {
+        this.game = Game.createGame(this.width, this.height);
         this.notifyListeners();
     }
 
-    changeSize(x,y){
-        this.game.changeSize(x,y);
-        this.width=x;
-        this.height=y;
+    changeSize(x, y) {
+        this.game.changeSize(x, y);
+        this.width = x;
+        this.height = y;
         this.notifyListeners();
     }
-
 
 
     click(x, y) {
@@ -89,22 +88,22 @@ export class GameViewModel extends ChangeNotifier {
 
         if (this.moveType === 0) {
             // 지우기
-           this.setBoard(x, y, Entity.empty);
+            this.setBoard(x, y, Entity.empty);
             this.setEntity(x, y, Entity.empty);
         }
         if (this.moveType === 1) {
-            // 지우기
+            // 벽
             this.setBoard(x, y, Entity.wall);
         }
         if (this.moveType === 2) {
             // 플레이어
+            this.setBoard(x, y, Entity.player);
             this.setEntity(x, y, Entity.player);
         }
         if (this.moveType === 3) {
             // 골대
             this.setBoard(x, y, Entity.goal);
         }
-
 
 
     }
