@@ -18,9 +18,6 @@ public class User {
 
     private String password;
     private String nickname;
-    private int clearStage = 0;
-    private int star = 0;
-    private int moveSum = 0;
     private boolean admin = false;
 
 }

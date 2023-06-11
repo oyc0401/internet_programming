@@ -1,3 +1,4 @@
+import {signup} from "../api/userApi.js";
 
 let nicknameForm = document.getElementById("nickname-form")
 

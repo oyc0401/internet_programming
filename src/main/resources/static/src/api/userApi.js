@@ -1,6 +1,6 @@
 import {getDomain} from "../../navigator/navigator.js";
 
-let domain=getDomain();
+let domain = getDomain();
 
 export async function isUser() {
     try {
@@ -68,7 +68,7 @@ export async function signup(username, password, nickname) {
     };
 
     try {
-       return  await fetch(`${domain}/api/signup`, param);
+        return await fetch(`${domain}/api/signup`, param);
     } catch (error) {
         console.error('Error:', error);
     }
